@@ -17,7 +17,7 @@ body:has(.s-dashboard) {
 }
 .dashboard-widgets .sortable-placeholder {
     background-color: #fff;
-    border: 1px dashed #4e5d9d;
+    border: 1px dashed #084C61;
     flex-grow: 0;
 }
 .dashboard-widgets.cards {

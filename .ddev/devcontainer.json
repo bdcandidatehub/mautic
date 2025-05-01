@@ -1,0 +1,51 @@
+{
+        "name": "Mautic Development",
+        "image": "mcr.microsoft.com/devcontainers/php:8.2",
+        "features": {
+                "ghcr.io/ddev/ddev/install-ddev:latest": {},
+                "ghcr.io/devcontainers/features/git:1": {},
+                "ghcr.io/devcontainers/features/github-cli:1": {},
+                "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+        },
+        "customizations": {
+                "vscode": {
+                        "extensions": [
+                                "bmewburn.vscode-intelephense-client",
+                                "xdebug.php-debug",
+                                "neilbrayfield.php-docblocker",
+                                "mikestead.dotenv",
+                                "eamodio.gitlens"
+                        ],
+                        "settings": {
+                                "php.validate.enable": true,
+                                "php.suggest.basic": false,
+                                "php.executablePath": "/usr/local/bin/php"
+                        }
+                }
+        },
+        "portsAttributes": {
+                "3306": {
+                        "label": "database"
+                },
+                "8027": {
+                        "label": "mailpit"
+                },
+                "8036": {
+                        "label": "phpmyadmin"
+                },
+                "80": {
+                        "label": "mautic (http)"
+                },
+                "8443": {
+                        "label": "mautic (https)"
+                }
+        },
+        "forwardPorts": [80, 8443, 3306, 8027, 8036],
+        "postCreateCommand": "chmod +x .devcontainer/setup-project.sh && .devcontainer/setup-project.sh",
+        "remoteUser": "vscode",
+        "runArgs": ["--init"],
+        "overrideCommand": false,
+        "mounts": [
+                "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+        ]
+}

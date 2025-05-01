@@ -19,7 +19,11 @@
 }
 
 .mautic-logo > svg.mautic-logo-figure .circle {
-    fill: #4e5e9e;
+    fill: #004052;  /* Dark blue */
+}
+
+.mautic-logo > svg.mautic-logo-figure .h {
+    fill: #40B7E8;  /* Light blue */
 }
 
 .mautic-logo > svg.mautic-logo-figure .m,
